@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blogging & GEO 2026 : Écrire pour être cité par les IA</title>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Blogging & GEO 2026 : Comment adapter la rédaction Medium pour être cité par les IA génératives",
+  "description": "Guide complet sur le Generative Engine Optimization (GEO) pour les créateurs de contenu sur Medium. Structures extractibles, blocs citations, données structurées et tactiques pour survivre au zero-click.",
+  "author": {
+    "@type": "Person",
+    "name": "Hugo",
+    "url": "https://medium.com/@hugo"
+  },
+  "datePublished": "2026-06-09",
+  "dateModified": "2026-06-09",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Medium"
+  },
+  "keywords": ["GEO", "Generative Engine Optimization", "SEO IA", "AI Overviews", "Zero-click", "Blogging", "Medium", "LLM", "ChatGPT", "Perplexity"],
+  "mainEntityOfPage": "https://medium.com/@hugo/blogging-geo-2026",
+  "inLanguage": "fr",
+  "articleSection": "Digital Marketing",
+  "about": [
+    {"@type": "Thing", "name": "Generative Engine Optimization"},
+    {"@type": "Thing", "name": "AI Overviews"},
+    {"@type": "Thing", "name": "Zero-click Search"},
+    {"@type": "Thing", "name": "Large Language Models"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que le GEO (Generative Engine Optimization) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le GEO est la pratique d'optimisation du contenu pour être cité dans les réponses générées par les IA (ChatGPT, Google AI Overviews, Perplexity). Contrairement au SEO qui vise un classement dans les résultats, le GEO vise à être la source extractée par les modèles de langage. Le terme a été formalisé par Aggarwal et al. (Princeton/Georgia Tech, KDD 2024)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi optimiser un article Medium pour les IA en 2026 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En 2026, plus de 60% des recherches Google se terminent sans clic (zero-click). Les AI Overviews apparaissent dans 48% des SERPs selon BrightEdge. Si votre contenu n'est pas citable par les IA, il devient invisible — même avec un bon classement SEO traditionnel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles structures de contenu augmentent les citations par les IA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les blocs de réponse directe (40–60 mots autonomes), les statistiques sourcées, les tableaux sémantiques, les balises H2/H3 formulées comme des questions, et les sections FAQ augmentent les citations. L'étude Princeton GEO (Aggarwal et al., 2024) confirme que l'ajout de statistiques améliore la visibilité IA de 30 à 41%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le zero-click signifie-t-il la fin du trafic vers Medium ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le trafic référé par les IA a augmenté de 527% entre janvier et mai 2025 (Previsible AI Traffic Report). Les utilisateurs qui cliquent depuis une citation IA convertissent mieux que le trafic organique classique. Le zero-click change le canal d'acquisition, pas la valeur du trafic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels KPIs mesurer pour le GEO sur Medium ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les nouveaux KPIs GEO incluent : l'AI Citation Share (fréquence de citation dans les réponses IA), l'AI Referral Traffic (sessions provenant de ChatGPT, Perplexity, Gemini), le Zero-Click Displacement Rate, et la Mention Velocity (vitesse d'apparition dans les réponses IA après publication)."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #0D0D0D;
+    --paper: #F9F6F0;
+    --accent: #C84B31;
+    --accent-2: #1A3A5C;
+    --muted: #6B6B6B;
+    --border: #E0D9CE;
+    --highlight-bg: #FFF3CD;
+    --stat-bg: #0D0D0D;
+    --stat-text: #F9F6F0;
+    --quote-border: #C84B31;
+    --tag-bg: #EAE4D9;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 17px;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 0;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .masthead span { color: var(--accent); margin: 0 12px; }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 72px 24px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.3;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .meta-row strong { color: var(--ink); font-weight: 500; }
+
+  /* ── EXTRACTABLE SUMMARY ── */
+  .summary-block {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-block h2 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .summary-text {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 32px;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 300;
+    border-left: 4px solid var(--accent);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* Section headers */
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 64px 0 20px;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .article-body h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 40px 0 14px;
+    color: var(--accent-2);
+  }
+
+  p { margin-bottom: 20px; }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin: 40px 0;
+    background: var(--border);
+  }
+  .stat-card {
+    background: var(--stat-bg);
+    color: var(--stat-text);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    line-height: 1.4;
+  }
+  .stat-source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    opacity: 0.4;
+    margin-top: 8px;
+    display: block;
+  }
+
+  /* ── CITATION BLOCK ── */
+  .citation-block {
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    margin: 32px 0;
+    background: white;
+  }
+  .citation-block p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .citation-block cite {
+    font-style: normal;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    display: block;
+  }
+
+  /* ── ANSWER BLOCK (extractible) ── */
+  .answer-block {
+    background: #EDF2F7;
+    border-radius: 2px;
+    padding: 22px 26px;
+    margin: 28px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    border-top: 3px solid var(--accent-2);
+  }
+  .answer-block .ab-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 10px;
+    display: block;
+    font-style: normal;
+  }
+
+  /* ── TACTICS TABLE ── */
+  .tactics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 14px;
+  }
+  .tactics-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  .tactics-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .tactics-table tr:nth-child(even) td { background: white; }
+  .tactics-table .impact {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: var(--highlight-bg);
+    border: 1px solid #F0D080;
+    padding: 24px 28px;
+    margin: 32px 0;
+    font-size: 15px;
+    border-radius: 2px;
+  }
+  .highlight-box strong {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .checklist li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── MULTILINGUAL BLOCK ── */
+  .multi-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 32px 0;
+    background: var(--border);
+  }
+  .multi-cell {
+    background: var(--paper);
+    padding: 20px 22px;
+  }
+  .multi-lang {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .multi-cell p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: var(--ink);
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    margin: 48px 0 0;
+    border-top: 2px solid var(--ink);
+    padding-top: 40px;
+  }
+  .faq-section > h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+  .faq-item {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .faq-a {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ── TAGS ── */
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 48px 0 32px;
+  }
+  .tag {
+    background: var(--tag-bg);
+    padding: 6px 14px;
+    border-radius: 1px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 32px;
+    text-align: center;
+    margin: 60px 0 0;
+  }
+  .footer-cta h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 14px;
+    color: var(--paper);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  .footer-cta p {
+    font-size: 15px;
+    opacity: 0.7;
+    margin-bottom: 28px;
+  }
+  .footer-cta .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 48px 0;
+    gap: 16px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .multi-block { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 28px; }
+  }
+
+  /* Print-friendly */
+  @media print {
+    .masthead, .footer-cta { display: none; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  Medium · GEO · AI Content Strategy
+  <span>✦</span>
+  Juin 2026 · Hugo
+  <span>✦</span>
+  Lecture : ~12 min
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Generative Engine Optimization · Blogging 2026</div>
+  <h1>Écrire pour être <em>cité</em> par les IA :<br>le GEO appliqué à Medium</h1>
+  <p class="hero-sub">
+    60% des recherches Google finissent sans clic. Vos articles Medium peuvent survivre — 
+    ou devenir les sources que les modèles de langage citent. Ce guide vous dit comment.
+  </p>
+  <div class="meta-row">
+    <span>Par <strong>Hugo</strong></span>
+    <span>·</span>
+    <span>9 juin 2026</span>
+    <span>·</span>
+    <span>Tags : #GEO #SEO #AISearch #Medium #ContentStrategy</span>
+  </div>
+</header>
+
+<!-- EXTRACTABLE SUMMARY -->
+<section class="summary-block" aria-label="Résumé extractible">
+  <h2>↳ Résumé extractible</h2>
+  <div class="summary-text">
+    <strong>GEO (Generative Engine Optimization)</strong> désigne l'optimisation du contenu pour être cité par les IA génératives (ChatGPT, Google AI Overviews, Perplexity). En 2026, 60 à 69% des recherches Google sont zero-click. L'étude Princeton/Georgia Tech (Aggarwal et al., KDD 2024) prouve que les statistiques sourcées, les blocs réponses autonomes et les FAQ structurées augmentent la visibilité IA de 30 à 41%. Pour les créateurs Medium : adopter des H2 orientés questions, des blocs extractibles de 40–60 mots et un JSON-LD est désormais non-optionnel.
+  </div>
+</section>
+
+<!-- ARTICLE BODY -->
+<main class="article-body">
+
+  <!-- SECTION 1 : CONTEXT -->
+  <h2>Le monde a changé. Vos articles aussi doivent changer.</h2>
+
+  <p>
+    En mai 2024, 56% des recherches liées à l'actualité sur Google se terminaient sans qu'un seul site soit visité. 
+    Un an après le déploiement des AI Overviews, ce chiffre atteignait 69% — soit un bond de 13 points en 12 mois.
+  </p>
+
+  <div class="stat-grid" role="complementary" aria-label="Chiffres clés GEO 2026">
+    <div class="stat-card">
+      <span class="stat-number">69%</span>
+      <div class="stat-label">des recherches news Google<br>sont zero-click en mai 2025</div>
+      <span class="stat-source">Similarweb, juillet 2025</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">48%</span>
+      <div class="stat-label">des SERPs Google<br>affichent un AI Overview</div>
+      <span class="stat-source">BrightEdge, 2026</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">+527%</span>
+      <div class="stat-label">trafic référé par les IA<br>(jan–mai 2025)</div>
+      <span class="stat-source">Previsible AI Traffic Report</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">1B+</span>
+      <div class="stat-label">utilisateurs mensuels<br>de Google AI Mode</div>
+      <span class="stat-source">Sundar Pichai, Google I/O 2026</span>
+    </div>
+  </div>
+
+  <p>
+    Ces chiffres ne signifient pas la mort du blogging. Ils signifient sa mutation. 
+    Le trafic IA référé a bondi de 527% entre janvier et mai 2025 selon le rapport Previsible. 
+    Les visiteurs arrivant via une citation IA convertissent mieux que le trafic organique classique. 
+    La question n'est plus "comment ranker ?" mais "comment être la source que l'IA cite ?"
+  </p>
+
+  <div class="citation-block">
+    <p>"Le SEO traditionnel optimise pour la visibilité dans les pages de résultats. Le GEO optimise pour être cité dans les réponses générées par l'IA. Ce sont deux disciplines distinctes qui s'alimentent l'une l'autre."</p>
+    <cite>Aggarwal et al., "GEO: Generative Engine Optimization" — Princeton/Georgia Tech/IIT Delhi, ACM KDD 2024</cite>
+  </div>
+
+  <div class="divider">§ 01</div>
+
+  <!-- SECTION 2 : WHAT IS GEO -->
+  <h2>Qu'est-ce que le GEO exactement ?</h2>
+
+  <div class="answer-block">
+    <span class="ab-label">↳ Définition extractible — Format IA-ready</span>
+    Le <strong>Generative Engine Optimization (GEO)</strong> est la pratique consistant à structurer son contenu pour être cité dans les réponses synthétisées par les moteurs IA (ChatGPT, Google AI Overviews, Perplexity, Claude, Gemini). Formalisé par Aggarwal et al. (Princeton/Georgia Tech, KDD 2024), le GEO s'oppose au SEO classique : là où le SEO vise un classement dans une liste de liens, le GEO vise à devenir le fragment extracté pour répondre à une question.
+  </div>
+
+  <p>
+    Les modèles de langage ne retournent pas des pages — ils synthétisent des réponses à partir de fragments. 
+    L'unité de visibilité n'est plus l'URL classée, c'est le <strong>chunk extractible</strong> : un bloc autonome, factuel, bien structuré, 
+    que l'IA peut isoler et citer directement dans sa réponse.
+  </p>
+
+  <h3>SEO vs GEO : les différences structurelles</h3>
+
+  <table class="tactics-table" aria-label="Comparaison SEO vs GEO">
+    <thead>
+      <tr>
+        <th>Critère</th>
+        <th>SEO classique</th>
+        <th>GEO 2026</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unité de succès</strong></td>
+        <td>URL classée en position 1</td>
+        <td>Fragment cité dans la réponse IA</td>
+      </tr>
+      <tr>
+        <td><strong>Signal d'autorité</strong></td>
+        <td>Backlinks, domaine</td>
+        <td>Densité factuelle, sources citées</td>
+      </tr>
+      <tr>
+        <td><strong>Format cible</strong></td>
+        <td>Contenu long, dense en mots-clés</td>
+        <td>Blocs 40–60 mots, H2 = questions</td>
+      </tr>
+      <tr>
+        <td><strong>KPI principal</strong></td>
+        <td>Organic CTR, position moyenne</td>
+        <td>AI Citation Share, Referral IA</td>
+      </tr>
+      <tr>
+        <td><strong>Données structurées</strong></td>
+        <td>Utiles</td>
+        <td>Obligatoires (JSON-LD, FAQ Schema)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="divider">§ 02</div>
+
+  <!-- SECTION 3 : TACTICS PRINCETON -->
+  <h2>Les 5 tactiques validées par la recherche académique</h2>
+
+  <p>
+    L'étude Princeton/Georgia Tech — présentée à l'ACM KDD 2024 avec 76 citations académiques et plus de 9 000 téléchargements — 
+    a testé 9 méthodes d'optimisation sur 10 000 requêtes. Cinq d'entre elles augmentent significativement la visibilité dans les réponses génératives.
+  </p>
+
+  <table class="tactics-table" aria-label="Tactiques GEO validées par Princeton KDD 2024">
+    <thead>
+      <tr>
+        <th>Tactique</th>
+        <th>Impact visibilité IA</th>
+        <th>Application Medium</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Statistics Addition</strong><br><small>Ajout de chiffres sourcés</small></td>
+        <td class="impact">+41%</td>
+        <td>1 stat vérifiable tous les 150–200 mots</td>
+      </tr>
+      <tr>
+        <td><strong>Cite Sources</strong><br><small>Citations de sources d'autorité</small></td>
+        <td class="impact">+30–40%</td>
+        <td>Citer études, institutions, rapports nommés</td>
+      </tr>
+      <tr>
+        <td><strong>Quotation Addition</strong><br><small>Citations d'experts directes</small></td>
+        <td class="impact">+37%</td>
+        <td>1 citation d'expert par section H2</td>
+      </tr>
+      <tr>
+        <td><strong>Fluency Optimization</strong><br><small>Phrases claires, directes, sans ambiguïté</small></td>
+        <td class="impact">+17%</td>
+        <td>Phrases courtes, sujets-verbes-compléments</td>
+      </tr>
+      <tr>
+        <td><strong>Authoritative Tone</strong><br><small>Ton affirmatif, sans hedging excessif</small></td>
+        <td class="impact">+variable</td>
+        <td>Éviter "il semble que", "peut-être que"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <strong>⚡ Finding critique — GEO-SFE (Tokyo/Tsukuba, arXiv 2603.29979, mars 2026)</strong>
+    La structure seule — indépendamment du contenu — améliore les taux de citation de 17,3% sur six moteurs génératifs. 
+    Les tableaux, les blocs statistiques isolés et les titres H2 formulés comme des questions sont les formats les plus extractibles. 
+    L'HTML sémantique corrèle à r=0,65 avec le taux de citation (GEO-16, Kumar et al., 2025).
+  </div>
+
+  <div class="divider">§ 03</div>
+
+  <!-- SECTION 4 : MEDIUM SPECIFICS -->
+  <h2>Comment adapter concrètement un article Medium ?</h2>
+
+  <h3>1 — Titre H1 : répondre à une intention, pas à un mot-clé</h3>
+
+  <p>
+    La requête ChatGPT moyenne est de <strong>23 mots</strong> contre 3–4 mots pour une recherche Google classique 
+    (HubSpot AI Search Trends, 2025). Vos titres doivent anticiper des questions complètes, pas des fragments.
+  </p>
+
+  <div class="multi-block" aria-label="Exemples de titres SEO vs GEO">
+    <div class="multi-cell">
+      <span class="multi-lang">❌ Titre SEO classique</span>
+      <p>"GEO Marketing Guide 2026"<br><br>"Meilleures pratiques blogging"</p>
+    </div>
+    <div class="multi-cell">
+      <span class="multi-lang">✅ Titre GEO-optimisé</span>
+      <p>"Comment structurer un article Medium pour être cité par ChatGPT en 2026"<br><br>"Quelles structures de contenu augmentent les citations IA de 40% ?"</p>
+    </div>
+  </div>
+
+  <h3>2 — Blocs réponses extractibles (40–60 mots)</h3>
+
+  <p>
+    Les LLMs préfèrent citer des blocs contenant des réponses autonomes de 200 à 400 tokens avec des définitions 
+    explicites et des attributions de sources (Strategyc.io / Princeton GEO study). 
+    Chaque section H2 doit contenir au moins un bloc réponse direct qui peut être extrait sans contexte.
+  </p>
+
+  <div class="answer-block">
+    <span class="ab-label">↳ Exemple de bloc extractible GEO-ready</span>
+    <strong>Le taux de zero-click sur Google AI Mode atteint 92 à 94% en 2026</strong> — versus 34 à 43% pour la recherche Google traditionnelle. Seulement 6 à 8% des sessions AI Mode mènent à une visite externe. Source : AEO Vision / Ahrefs / Semrush clickstream analysis, 2025.
+  </div>
+
+  <h3>3 — Structure H2/H3 orientée questions</h3>
+
+  <ul class="checklist">
+    <li>Chaque H2 formulé comme une question réelle de l'utilisateur ("Pourquoi optimiser pour les IA en 2026 ?")</li>
+    <li>La réponse directe dans les 2 premières phrases sous le H2</li>
+    <li>1 statistique sourcée dans les 150 premiers mots de chaque section</li>
+    <li>H3 pour décomposer : tactiques, sous-points, exemples concrets</li>
+    <li>Section FAQ obligatoire avec JSON-LD FAQPage schema en fin d'article</li>
+  </ul>
+
+  <h3>4 — JSON-LD : le passeport machine de votre article</h3>
+
+  <p>
+    Sur Medium, vous ne pouvez pas injecter du JSON-LD directement dans la page. 
+    Mais vous pouvez : (1) publier une version HTML canonique sur votre domaine avec schémas et rediriger Medium, 
+    (2) utiliser un article Medium comme distribution secondaire avec liens canoniques vers votre site structuré, 
+    (3) intégrer le contenu structuré dans une publication Medium Publication avec accès développeur.
+  </p>
+
+  <div class="highlight-box">
+    <strong>📌 Workaround Medium + JSON-LD</strong>
+    Publiez d'abord sur votre propre domaine (Ghost, WordPress, Webflow) avec tous les schémas JSON-LD 
+    (Article, FAQPage, HowTo). Republier ensuite sur Medium avec canonical tag pointant vers votre version. 
+    Medium distribue, votre site structure. Les IA indexent les deux.
+  </div>
+
+  <div class="divider">§ 04</div>
+
+  <!-- SECTION 5 : MULTILINGUE -->
+  <h2>Le multilinguisme comme levier GEO sous-exploité</h2>
+
+  <p>
+    Les modèles LLMs crawlent et citent dans toutes les langues. Un article en français sur un sujet niche 
+    peut dominer les citations IA en francophone bien plus facilement que le même sujet en anglais où la concurrence est intense.
+  </p>
+
+  <div class="multi-block" aria-label="Définition GEO multilingue">
+    <div class="multi-cell">
+      <span class="multi-lang">🇫🇷 Français</span>
+      <p>Le GEO (Generative Engine Optimization) est l'ensemble des pratiques visant à structurer le contenu pour être cité dans les réponses générées par les IA conversationnelles et les moteurs de recherche génératifs.</p>
+    </div>
+    <div class="multi-cell">
+      <span class="multi-lang">🇬🇧 English</span>
+      <p>GEO (Generative Engine Optimization) is the practice of structuring content to be cited within AI-generated answers from systems like ChatGPT, Google AI Overviews, and Perplexity, rather than simply ranking in traditional SERPs.</p>
+    </div>
+  </div>
+
+  <p style="margin-top: 20px;">
+    Pour les créateurs qui couvrent des marchés arabophones ou francophones d'Afrique, 
+    l'opportunité est encore plus grande : <strong>84% des équipes ne mesurent pas encore leur performance dans la recherche IA</strong> 
+    (Omnibound.ai, 2026). Être premier dans une langue non-anglophone sur un sujet GEO ciblé est atteignable rapidement.
+  </p>
+
+  <div class="divider">§ 05</div>
+
+  <!-- SECTION 6 : KPIs -->
+  <h2>Quels KPIs suivre pour votre GEO sur Medium ?</h2>
+
+  <p>Les métriques SEO classiques (position, CTR organique) ne capturent pas la visibilité IA. De nouveaux KPIs s'imposent :</p>
+
+  <table class="tactics-table" aria-label="KPIs GEO pour créateurs Medium">
+    <thead>
+      <tr>
+        <th>KPI</th>
+        <th>Définition</th>
+        <th>Outil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AI Citation Share</strong></td>
+        <td>Fréquence à laquelle votre contenu est cité dans les réponses IA</td>
+        <td>Semrush AI Toolkit, Omnibound</td>
+      </tr>
+      <tr>
+        <td><strong>AI Referral Traffic</strong></td>
+        <td>Sessions provenant de ChatGPT.com, Perplexity, Gemini</td>
+        <td>GA4 (source/medium filtres IA)</td>
+      </tr>
+      <tr>
+        <td><strong>Overview Visibility</strong></td>
+        <td>Présence dans Google AI Overviews pour vos requêtes cibles</td>
+        <td>Ahrefs AI Visibility, BrightEdge</td>
+      </tr>
+      <tr>
+        <td><strong>Mention Velocity</strong></td>
+        <td>Vitesse de citation après publication d'un article</td>
+        <td>AI Search tracking (manuel ou automatisé)</td>
+      </tr>
+      <tr>
+        <td><strong>Zero-Click Displacement Rate</strong></td>
+        <td>Part de vos requêtes cibles absorbée par les AI Overviews</td>
+        <td>Similarweb, SEMrush</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="citation-block">
+    <p>"Les marques citées dans les AI Overviews obtiennent un CTR organique 35% plus élevé et un CTR payant 91% plus élevé que les marques absentes des synthèses IA."</p>
+    <cite>Superlines, 2026 — via Sunil Pratap Singh / Princeton GEO Research Synthesis</cite>
+  </div>
+
+  <div class="divider">§ 06</div>
+
+  <!-- SECTION 7 : CHECKLIST -->
+  <h2>Checklist GEO complète avant de publier sur Medium</h2>
+
+  <ul class="checklist" aria-label="Checklist GEO publication Medium">
+    <li><strong>H1</strong> : formulé comme une question de 8–15 mots, intention claire</li>
+    <li><strong>Résumé extractible</strong> : 80–100 mots autonomes en début d'article</li>
+    <li><strong>H2 orientés questions</strong> : chaque section répond à une requête réelle</li>
+    <li><strong>Blocs réponses</strong> : au moins 1 bloc autonome de 40–60 mots par H2</li>
+    <li><strong>Statistiques sourcées</strong> : 1 chiffre vérifiable tous les 150–200 mots</li>
+    <li><strong>Citation d'expert</strong> : au moins 1 par article (auteur + institution + date)</li>
+    <li><strong>Tableau de comparaison</strong> ou liste structurée visible dans le premier scroll</li>
+    <li><strong>FAQ</strong> : 4–6 questions/réponses en bas d'article</li>
+    <li><strong>JSON-LD</strong> : Article + FAQPage sur votre site canonique</li>
+    <li><strong>Mise à jour</strong> : planifier révision à 3 mois (volatilité IA élevée)</li>
+    <li><strong>Cross-platform</strong> : LinkedIn, Newsletter (Beehiiv), Twitter/X avec hooks extraits</li>
+    <li><strong>Langue</strong> : envisager version EN ou AR pour doubles citations IA</li>
+  </ul>
+
+  <div class="divider">§ 07</div>
+
+  <!-- SECTION 8 : VIGILANCE -->
+  <h2>Les pièges à éviter absolument</h2>
+
+  <h3>Sur-optimisation et contenu creux</h3>
+  <p>
+    L'étude Princeton démontre que le keyword stuffing, typique du SEO traditionnel, 
+    <strong>performe mal dans les contextes génératifs</strong>. Les LLMs privilégient la densité factuelle réelle 
+    sur la répétition de termes. Un article avec 3 statistiques solides et bien sourcées surclassera 
+    un article de 3 000 mots rempli de synonymes.
+  </p>
+
+  <h3>Ignorer la volatilité des IA</h3>
+  <p>
+    Les algorithmes d'extraction des IA évoluent tous les 60 à 90 jours. 
+    Ce qui est cité aujourd'hui peut ne plus l'être demain si vous n'actualisez pas vos données. 
+    Intégrez les révisions périodiques dans votre éditorial — datez vos articles et mentionnez explicitement 
+    les mises à jour ("Article mis à jour : juin 2026").
+  </p>
+
+  <h3>Oublier le clic malgré le zero-click</h3>
+  <p>
+    Le zero-click ne supprime pas le besoin de cliquer pour les contenus approfondis. 
+    Insérez des <strong>hooks vers votre contenu étendu</strong> : templates, outils, études de cas, accès newsletter. 
+    L'IA peut citer votre définition — mais l'humain a besoin d'un système complet, qu'il trouvera sur votre site.
+  </p>
+
+  <!-- FAQ -->
+  <section class="faq-section" aria-label="Questions fréquentes GEO Medium">
+    <h2>Questions fréquentes sur le GEO et le blogging</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Qu'est-ce que le GEO (Generative Engine Optimization) ?</p>
+      <p class="faq-a">Le GEO est la pratique d'optimisation du contenu pour être cité dans les réponses générées par les IA (ChatGPT, Google AI Overviews, Perplexity). Contrairement au SEO qui vise un classement dans les résultats, le GEO vise à être la source extractée par les modèles de langage. Le terme a été formalisé par Aggarwal et al. (Princeton/Georgia Tech, KDD 2024).</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Pourquoi optimiser un article Medium pour les IA en 2026 ?</p>
+      <p class="faq-a">En 2026, plus de 60% des recherches Google se terminent sans clic. Les AI Overviews apparaissent dans 48% des SERPs. Si votre contenu n'est pas citable par les IA, il devient invisible — même avec un bon classement SEO traditionnel. Être cité dans les réponses IA génère un trafic plus qualifié et un CTR 35% supérieur (Superlines, 2026).</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Quelles structures de contenu augmentent les citations par les IA ?</p>
+      <p class="faq-a">Les blocs réponses autonomes (40–60 mots), les statistiques sourcées, les tableaux sémantiques, les H2/H3 formulés comme des questions, et les sections FAQ augmentent les citations. L'étude Princeton GEO (Aggarwal et al., 2024) confirme que l'ajout de statistiques améliore la visibilité IA de 30 à 41%. La structure seule apporte +17,3% de citations supplémentaires (GEO-SFE, 2026).</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Le zero-click signifie-t-il la fin du trafic vers Medium ?</p>
+      <p class="faq-a">Non. Le trafic référé par les IA a augmenté de 527% entre janvier et mai 2025 (Previsible AI Traffic Report). Les visiteurs arrivant via une citation IA convertissent mieux que le trafic organique classique. Le zero-click change le canal d'acquisition, pas la valeur du trafic qualifié.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Quels KPIs mesurer pour le GEO sur Medium ?</p>
+      <p class="faq-a">Les KPIs GEO prioritaires : AI Citation Share, AI Referral Traffic (sessions depuis ChatGPT/Perplexity/Gemini dans GA4), Overview Visibility, et Mention Velocity. Seulement 16% des marques mesurent actuellement leur performance IA — c'est une opportunité de premier entrant majeure (Omnibound.ai, 2026).</p>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <div class="tag-cloud" aria-label="Tags et hashtags Medium">
+    <span class="tag">#GEO</span>
+    <span class="tag">#GenerativeEngineOptimization</span>
+    <span class="tag">#AISearch</span>
+    <span class="tag">#SEO2026</span>
+    <span class="tag">#AIOverviews</span>
+    <span class="tag">#ZeroClick</span>
+    <span class="tag">#ContentStrategy</span>
+    <span class="tag">#Medium</span>
+    <span class="tag">#LLM</span>
+    <span class="tag">#ChatGPT</span>
+    <span class="tag">#Perplexity</span>
+    <span class="tag">#Blogging</span>
+    <span class="tag">#DigitalMarketing</span>
+    <span class="tag">#AIContent</span>
+  </div>
+
+</main>
+
+<!-- FOOTER CTA -->
+<footer class="footer-cta">
+  <h3>Téléchargez le système complet</h3>
+  <p>Template GEO · Checklist JSON-LD · Calendrier éditorial IA · Tracker de citations</p>
+  <a href="#" class="cta-btn">Accéder aux ressources →</a>
+</footer>
+
+</body>
+</html>
